@@ -22,7 +22,7 @@ body {
 }
 
 #home {
-    background-image: url(img/pexels-luis-quintero-2148216.jpg);
+    background-image: url("/img/img1.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
