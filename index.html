@@ -56,6 +56,7 @@
     </div>
 
     <!-- ========== Hero Section ========== -->
+
     <section id="home">
         <div class="container text-center">
             <div class="row justify-content-center">
@@ -72,99 +73,47 @@
     </section>
 
     <!-- ========== Post and Create Section ========== -->
+
     <section id="Newsfeed">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center my-4">Posts Page</h2>
+                    <h2 class="text-center my-4">Blog Page</h2>
                     <div class="hline"></div>
                     <hr>
                 </div>
             </div>
             <div class="row">
 
-                <form action="" id="post-form">
+
+                <form action="" class="add-post-form">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Post Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="enter a title">
-                        <div id="emailHelp" class="form-text">We'll never share your post with anyone else.</div>
+                        <input type="text" class="form-control" id="title-value" placeholder="enter a title">
                     </div>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="body" style="height: 100px"></textarea>
-                        <!-- <label for="floatingTextarea2">Post Body</label> -->
+                        <textarea class="form-control" placeholder="Leave a comment here" id="body-value" style="height: 200px"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Create Post</button>
+                    <button type="submit" class="btn btn-primary mt-3">Add Post</button>
                 </form>
 
-                <div class="card-section mt-5">
-                    <div class="container">
-                        <div class="row" id="post-holder">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <p>1</p>
-                                        <h6 id="post-title">Post title</h6>
-                                        <p id="post-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, at. Dicta illum, earum autem rem deleniti nesciunt molestiae veniam aut atque non nostrum. Tenetur debitis facilis, omnis minus voluptates ducimus unde
-                                            suscipit eos culpa amet placeat sequi, nostrum iure error? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dignissimos labore nam. Iusto reiciendis qui sed veritatis laudantium doloribus repellendus.</p>
-                                        <div class="d-flex justify-content-between">
-                                            <button class="btn btn-primary">Update</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="posts-list row ">
+                    <div class="card mt-4 col-md-4 bg-light ">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link text-decoration-none">Edit</a>
+                            <a href="#" class="card-link text-decoration-none">Delete</a>
                         </div>
                     </div>
+
                 </div>
 
     </section>
 
     <!-- ========== Footer ======== -->
-    <div class="container">
-        <div class="row gy-5 mb-lg-5">
-            <div class="col-lg-6 col-md-12 footer-info">
-                <h2 class="logo fw-bold text-secondary">SAGECODER</h2>
-                <p class="lh-lg fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem distinctio incidunt aut debitis, itaque illum libero saepe mollitia voluptatibus. Aliquid qui obcaecati quibusdam iusto facere perferendis nostrum fugiat, porro excepturi? Qui
-                    nostrum numquam veritatis, odit at sit blanditiis cum quis explicabo? Dolor, minima? Eveniet quo cupiditate ut, maxime suscipit ab laudantium, reiciendis sapiente quos distinctio, quas ducimus. Voluptatibus, facere quos!</p>
-                <div class="social-links footer-links mt-3 g-lg-4">
-                    <a href="#" class="facebook"><i class="bi bi-facebook" style="width: 120px; height: 120px;"></i></a>
-                    <a href="#" class="twitter"><i class="fab bi-twitter px-3"></i></a>
-                    <a href="#" class="instagram"><i class="fab bi-instagram"></i></a>
-                    <a href="#" class="linkedIn"><i class="fab bi-linkedin px-3"></i></a>
-                </div>
-            </div>
 
-            <div class="col-lg-2 col-6 footer-links lh-lg gy-5">
-                <h4>Useful Links</h4>
-                <ul class="px-0">
-                    <li><i class="bi bi-chevron-right fs-5"></i><a href="#">Home</a></li>
-                    <li><i class="bi bi-chevron-right fs-5"></i><a href="#">About</a></li>
-                    <li><i class="bi bi-chevron-right fs-5"></i><a href="#">Services</a></li>
-                    <li><i class="bi bi-chevron-right fs-5"></i><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-6 footer-links lh-lg">
-                <h4>Our Services</h4>
-                <ul class="px-0">
-                    <li><i class="bi bi-chevron-right fs-5"></i><a href="#">Web Design</a></li>
-                    <li><i class="bi bi-chevron-right fs-5"></i><a href="#">Web Development</a></li>
-                    <li><i class="bi bi-chevron-right fs-5"></i><a href="#">Graphic Design</a></li>
-                    <li><i class="bi bi-chevron-right fs-5"></i><a href="#">Digital Marketing</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-12 footer-contact text-center text-md-start lh-lg">
-                <h4>Contact Us</h4>
-                <p class="">Oshodi, close Lagos <br> Lagos, Nigeria <br>
-                    <strong>Phone:</strong> +234-8-123-4567-89 <br>
-                    <strong>Email: </strong>Bameejay@gmail.com
-                </p>
-            </div>
-
-
-        </div>
-    </div>
-    </div> -->
     <section id="footer">
         <div class="container-fluid text-center bg-primary py-4 text-white fw-bold fs-5">
             <div class="copyright text-muted">

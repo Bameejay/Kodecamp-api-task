@@ -70,3 +70,7 @@ body {
 #footer .bg-primary {
     background-color: #eceeff!important;
 }
+
+.card-body {
+    row-gap: 20px!important;
+}
