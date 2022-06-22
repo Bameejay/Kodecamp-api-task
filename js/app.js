@@ -8,7 +8,8 @@ let output = '';
 const renderPosts = (posts) => {
     posts.forEach(post => {
         output += `
-        <div class="card mt-4 col-md-4 bg-light" >
+        <div class = col-md-4>
+        <div class="card mt-4 bg-light" >
             <div class="card-body" data-id=${post.id}>
                 <h5 class="card-title">${post.title}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${post.id}</h6>
@@ -17,7 +18,7 @@ const renderPosts = (posts) => {
                 <a href="#" class="card-link text-decoration-none" id="delete-post">Delete</a>
             </div>
         </div>
-                
+        </div>          
                 `;
     });
     postsList.innerHTML = output;
@@ -101,11 +102,11 @@ addPostForm.addEventListener('submit', (e) => {
         .then(res => res.json())
         .then(data => {
             const dataArr = [];
-            dataArr.unshift(data);
+            dataArr.push(data);
             renderPosts(dataArr);
         })
 
     // reset input fields empty
-    titleValue.value = '';
-    bodyValue.value = '';
+    // titleValue.value = '';
+    // bodyValue.value = '';
 })
