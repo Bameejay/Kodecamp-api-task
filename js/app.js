@@ -64,17 +64,16 @@ postsList.addEventListener('click', (e) => {
     btnSubmit.addEventListener('click', (e) => {
         e.preventDefault();
         fetch(`${url}/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                title: titleValue.value,
-                body: bodyValue.value,
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: titleValue.value,
+                    body: bodyValue.value,
+                })
             })
-        })
-
-        .then(res => res.json())
+            .then(res => res.json())
             .then(() => location.reload())
 
     })
@@ -107,6 +106,6 @@ addPostForm.addEventListener('submit', (e) => {
         })
 
     // reset input fields empty
-    // titleValue.value = '';
-    // bodyValue.value = '';
+    titleValue.value = '';
+    bodyValue.value = '';
 })
