@@ -1,118 +1,180 @@
-const postsList = document.querySelector('.posts-list');
-const addPostForm = document.querySelector('.add-post-form');
-const titleValue = document.getElementById('title-value');
-const bodyValue = document.getElementById('body-value');
-const btnSubmit = document.querySelector('.btn');
-let output = '';
+let postWrapper = document.querySelector("#post-holder");
+let postForm = document.querySelector("#post-form");
+let title = document.querySelector("#title");
+let body = document.querySelector("#body");
 
-const renderPosts = (posts) => {
-    posts.forEach(post => {
-        output += `
-        <div class = col-md-4>
-        <div class="card mt-4 bg-light" >
-            <div class="card-body" data-id=${post.id}>
-                <h5 class="card-title">${post.title}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${post.id}</h6>
-                <p class="card-text">${post.body}</p>
-                <a href="#" class="card-link text-decoration-none" id="edit-post">Edit</a>
-                <a href="#" class="card-link text-decoration-none" id="delete-post">Delete</a>
-            </div>
-        </div>
-        </div>          
+let postBox = [];
+
+function getPosts() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(postBox);
+            postBox = data;
+            let postHolder = " ";
+            postBox.forEach((post) => {
+                postHolder += `
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p>${post.id}</p>
+                                <h6 id="post-title">${post.title}</h6>
+                                <p id="post-body">
+                                    ${post.body}
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary rounded-3"onclick=updatePost(${post.id})>Update</button>
+                                    <button class="btn btn-danger rounded-3"onclick=deletePost(${post.id})>Delete</button>
+                                    <button class="btn btn-success rounded-3"onclick=openSingle(${post.id})>View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                
                 `;
-    });
-    postsList.innerHTML = output;
+            });
+            postWrapper.innerHTML = postHolder;
+        });
+    // .then(json => console.log(json))
 }
 
-const url = 'https://jsonplaceholder.typicode.com/posts';
+getPosts();
 
-// Get - Read the posts
-// Method: GET
-fetch(url)
-    .then(res => res.json())
-    .then(data => renderPosts(data))
+postForm.addEventListener("submit", createPost);
 
-postsList.addEventListener('click', (e) => {
+function createPost(e) {
     e.preventDefault();
-    let delButtonIsPressed = e.target.id === 'delete-post';
-    let editButtonIsPressed = e.target.id === 'edit-post';
-
-    let id = e.target.parentElement.dataset.id;
-
-    // Delete - Remove the existing post
-    // Method: DELETE
-    if (delButtonIsPressed) {
-        fetch(`${url}/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    title: titleValue.value,
-                    body: bodyValue.value,
-                })
-            })
-            .then(res => res.json())
-            .then(() => location.reload())
-    }
-
-    if (editButtonIsPressed) {
-        const parent = e.target.parentElement;
-        let titleContent = parent.querySelector('.card-title').textContent;
-        let bodyContent = parent.querySelector('.card-text').textContent;
-
-        titleValue.value = titleContent;
-        bodyValue.value = bodyContent;
-
-    }
-
-    // Update - update the existing posts
-    // Method: PATCH
-    btnSubmit.addEventListener('click', (e) => {
-        e.preventDefault();
-        fetch(`${url}/${id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    title: titleValue.value,
-                    body: bodyValue.value,
-                })
-            })
-            .then(res => res.json())
-            .then(() => location.reload())
-
-    })
-
-});
-
-
-// CREATE - Create a new post
-// METHOD: POST
-
-
-addPostForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+    // console.log(title.value, body.value);
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
             body: JSON.stringify({
-                title: titleValue.value,
-                body: bodyValue.value,
+                title: title.value,
+                body: body.value,
+                userId: 2,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            alert("Post created successfully");
+            postBox.push(data);
+            console.log(postBox);
+            let postHolder = " ";
+            postBox.forEach((post) => {
+                postHolder += `
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p>${post.id}</p>
+                                <h6 id="post-title">${post.title}</h6>
+                                <p id="post-body">
+                                    ${post.body}
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary rounded-3"onclick=updatePost(${post.id})>Update</button>
+                                    <button class="btn btn-danger rounded-3"onclick=deletePost(${post.id})>Delete</button>
+                                    <button class="btn btn-success rounded-3"onclick=openSingle${post.id})>View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                
+                `;
+            });
+            postWrapper.innerHTML = postHolder;
+        });
+}
+
+
+function updatePost(id) {
+    console.log(id);
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: "PUT",
+            body: JSON.stringify({
+                id: 1,
+                title: title.value,
+                body: body.value,
+                userId: 1,
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            let postTitles = document.querySelectorAll("#post-title");
+            let postBodies = document.querySelectorAll("#post-body");
+            postTitles.forEach((postTitle, index) => {
+                if (index + 1 === id) {
+                    if (data.title !== "") {
+                        postTitle.innerHTML = data.title;
+                    }
+                }
+            })
+            postBodies.forEach((postBody, index) => {
+                if (index + 1 === id) {
+                    if (data.body !== "") {
+                        postBody.innerHTML = data.body;
+                    }
+                }
             })
         })
-        .then(res => res.json())
-        .then(data => {
-            const dataArr = [];
-            dataArr.push(data);
-            renderPosts(dataArr);
-        })
+}
 
-    // reset input fields empty
-    titleValue.value = '';
-    bodyValue.value = '';
-})
+
+function openSingle(id) {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            localStorage.setItem("viewedPost", JSON.stringify(data));
+            window.location.href = `single.html`;
+        });
+}
+
+
+function deletePost(id) {
+    fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            method: 'DELETE',
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            postBox = postBox.filter(post => post.id !== id);
+            console.log(postBox);
+            let postHolder = " ";
+            postBox.forEach((post) => {
+                postHolder += `
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p>${post.id}</p>
+                                <h6 id="post-title">${post.title}</h6>
+                                <p id="post-body">
+                                    ${post.body}
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary rounded-3"onclick=updatePost(${post.id})>Update</button>
+                                    <button class="btn btn-danger rounded-3"onclick=deletePost(${post.id})>Delete</button>
+                                    <button class="btn btn-success rounded-3"onclick=openSingle(${post.id})>View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                
+                `;
+            });
+            postWrapper.innerHTML = postHolder;
+        })
+}
