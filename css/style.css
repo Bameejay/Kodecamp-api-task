@@ -55,10 +55,9 @@ body {
     margin: 16px auto 0 auto;
 }
 
-
-/* #footer .bg-primary {
+#footer .bg-primary {
     background-color: #eceeff!important;
-} */
+}
 
 #card {
     background-color: #ccc;

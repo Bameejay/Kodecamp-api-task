@@ -25,7 +25,7 @@ function getPosts() {
                                 <div class="d-flex justify-content-between">
                                     <button class="btn btn-primary rounded-3"onclick=updatePost(${post.id})>Update</button>
                                     <button class="btn btn-danger rounded-3"onclick=deletePost(${post.id})>Delete</button>
-                                    <button class="btn btn-success rounded-3"onclick=openSingle(${post.id})>View</button>
+                                    <button class="btn btn-warning rounded-3"onclick=openSingle(${post.id})>View</button>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +61,7 @@ function createPost(e) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
-            alert("Post created successfully");
-            postBox.push(data);
+            postBox.unshift(data);
             console.log(postBox);
             let postHolder = " ";
             postBox.forEach((post) => {
@@ -78,7 +77,7 @@ function createPost(e) {
                                 <div class="d-flex justify-content-between">
                                     <button class="btn btn-primary rounded-3"onclick=updatePost(${post.id})>Update</button>
                                     <button class="btn btn-danger rounded-3"onclick=deletePost(${post.id})>Delete</button>
-                                    <button class="btn btn-success rounded-3"onclick=openSingle${post.id})>View</button>
+                                    <button class="btn btn-warning rounded-3"onclick=openSingle${post.id})>View</button>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +136,7 @@ function openSingle(id) {
         .then((data) => {
             console.log(data)
             localStorage.setItem("viewedPost", JSON.stringify(data));
-            window.location.href = `single.html`;
+            window.location.href = `view-page.html`;
         });
 }
 
@@ -165,7 +164,7 @@ function deletePost(id) {
                                 <div class="d-flex justify-content-between">
                                     <button class="btn btn-primary rounded-3"onclick=updatePost(${post.id})>Update</button>
                                     <button class="btn btn-danger rounded-3"onclick=deletePost(${post.id})>Delete</button>
-                                    <button class="btn btn-success rounded-3"onclick=openSingle(${post.id})>View</button>
+                                    <button class="btn btn-warning rounded-3"onclick=openSingle(${post.id})>View</button>
                                 </div>
                             </div>
                         </div>
