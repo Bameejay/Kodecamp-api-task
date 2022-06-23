@@ -21,7 +21,7 @@ body {
 } */
 
 #home {
-    background-image: url('../images/img1.jpg');
+    background-image: url("../images/img1.jpg");
     /* background-image: url("https://res.cloudinary.com/johnsonfrancis/image/upload/v1655998138/img1_iir8jx.jpg"); */
     background-size: cover;
     background-position: center;
