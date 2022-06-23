@@ -16,15 +16,9 @@ body {
 }
 
 
-/* #navbar span .fw-bold .text-secondary {
-    color: #fff!important;
-} */
-
-
 /* Home-section */
 
 #home {
-    /* background: url("../images/laptop.jpg"); */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -35,7 +29,7 @@ body {
 }
 
 #home h1 {
-    padding-top: 100px!important;
+    padding-top: 2rem!important;
 }
 
 #home p {
