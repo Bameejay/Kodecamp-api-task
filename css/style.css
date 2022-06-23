@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-image: url("https://res.cloudinary.com/johnsonfrancis/image/upload/v1655998138/img1_iir8jx.jpg");
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -22,7 +23,7 @@ body {
 
 #home {
     /* background: url("../images/laptop.jpg"); */
-    background-image: url("https://res.cloudinary.com/johnsonfrancis/image/upload/v1655998138/img1_iir8jx.jpg");
+    /* background-image: url("https://res.cloudinary.com/johnsonfrancis/image/upload/v1655998138/img1_iir8jx.jpg"); */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
