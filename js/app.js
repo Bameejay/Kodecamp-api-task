@@ -3,7 +3,7 @@ const addPostForm = document.querySelector('.add-post-form');
 const titleValue = document.getElementById('title-value');
 const bodyValue = document.getElementById('body-value');
 const btnSubmit = document.querySelector('.btn');
-let output = [];
+let output = '';
 
 const renderPosts = (posts) => {
     posts.forEach(post => {
