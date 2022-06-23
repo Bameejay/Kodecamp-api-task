@@ -24,7 +24,7 @@ body {
 /* Home-section */
 
 #home {
-    background-image: url("../images/laptop.jpg");
+    background: url("../images/laptop.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
