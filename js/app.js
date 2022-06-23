@@ -3,7 +3,7 @@ const addPostForm = document.querySelector('.add-post-form');
 const titleValue = document.getElementById('title-value');
 const bodyValue = document.getElementById('body-value');
 const btnSubmit = document.querySelector('.btn');
-let output = '';
+let output = [];
 
 const renderPosts = (posts) => {
     posts.forEach(post => {
@@ -44,6 +44,13 @@ postsList.addEventListener('click', (e) => {
     if (delButtonIsPressed) {
         fetch(`${url}/${id}`, {
                 method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: titleValue.value,
+                    body: bodyValue.value,
+                })
             })
             .then(res => res.json())
             .then(() => location.reload())
